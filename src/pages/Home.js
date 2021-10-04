@@ -10,7 +10,7 @@ export const Home = () => {
 
     const {loading, tickets, fetchTickets} = useContext(TicketsContext);
 
-    const [actualTickets, setActualTickets] = useState(tickets);
+    const [actualTickets, setActualTickets] = useState([]);
 
     useEffect(() => {
         fetchTickets();
@@ -39,7 +39,8 @@ export const Home = () => {
             {
                 loading
                     ? <Loader/>
-                    : <TicketsList tickets={actualTickets}/>
+                    // TODO need to do it right
+                    : <TicketsList tickets={checks.includes('4') ? tickets : actualTickets}/>
             }
         </Fragment>
     )
