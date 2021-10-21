@@ -1,40 +1,26 @@
 import React from 'react'
 
+const FiltersRow = ({checkboxSwitch, name, value}) => {
+    return (
+        <div className="form-check">
+            <input className="form-check-input" type="checkbox" value={value} onChange={checkboxSwitch} defaultChecked={name==="Все"}/>
+            <label className="form-check-label" htmlFor="flexCheckChecked">
+                {name}
+            </label>
+        </div>
+    )
+};
+
 export const Filter = ({checkboxSwitch}) => {
+
+    const stops = ['Без пересадок', 'Одна пересадка', 'Две пересадки', 'Три пересадки', 'Все'];
 
     return (
         <div className="card">
             <h5 className="card-title">Количество пересадок</h5>
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="4" name="all" onChange={checkboxSwitch} defaultChecked={true}/>
-                <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Все
-                </label>
-            </div>
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="0" name="none" onChange={checkboxSwitch}/>
-                <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Без пересадок
-                </label>
-            </div>
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="1" name="one" onChange={checkboxSwitch}/>
-                <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Одна пересадка
-                </label>
-            </div>
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="2" name="two" onChange={checkboxSwitch}/>
-                <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Две пересадки
-                </label>
-            </div>
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="3" name="three" onChange={checkboxSwitch}/>
-                <label className="form-check-label" htmlFor="flexCheckChecked">
-                    Три пересадки
-                </label>
-            </div>
+            {stops.map((stop, i) => (
+                <FiltersRow checkboxSwitch={checkboxSwitch} name={stop} value={i} key={i}/>
+            ))}
         </div>
     )
 };

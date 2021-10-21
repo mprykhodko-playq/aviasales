@@ -6,7 +6,7 @@ export const Ticket = ({ticket}) => {
     const transCount = (trans) => {
         let res;
         trans.length > 1 ? res = trans.length + " ПЕРЕСАДКИ" : (
-            trans.length == 1 ? res = trans.length + " ПЕРЕСАДКА" : res = "ПЕРЕСАДОК НЕТ"
+            trans.length === 1 ? res = trans.length + " ПЕРЕСАДКА" : res = "ПЕРЕСАДОК НЕТ"
         );
         return res;
     };
@@ -42,7 +42,7 @@ export const Ticket = ({ticket}) => {
                     {transCount(ticket.stops)}
                 </div>
                 <div className="col">
-                    {ticket.stops.length == 0 ? '-' : ticket.stops.toString()}
+                    {ticket.stops.length === 0 ? '-' : ticket.stops.toString()}
                 </div>
             </div>
         </div>

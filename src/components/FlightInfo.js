@@ -14,7 +14,7 @@ export const FlightInfo = ({ticket}) => {
                 <div className="col">
                 </div>
                 <div className="col">
-                    <img src={logoURL} className="rounded float-start"></img>
+                    <img src={logoURL} className="rounded float-start" alt=''/>
                 </div>
             </div>
             <Ticket ticket={ticket.segments[0]}/>

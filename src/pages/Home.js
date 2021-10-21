@@ -14,7 +14,7 @@ export const Home = () => {
 
     useEffect(() => {
         fetchTickets();
-    },[]);
+    }, []);
 
     const checkboxSwitch = (event) => {
         if (event.target.checked) {
